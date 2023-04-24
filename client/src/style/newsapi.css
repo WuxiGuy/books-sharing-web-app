@@ -1,0 +1,32 @@
+/* newsticker.css */
+
+/* Set the font and color for the news ticker */
+.newsticker {
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #444444;
+    font-size: 24px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .newsticker span {
+    display: inline-block;
+    animation: newsTicker 10s linear infinite;
+  }
+  
+  @keyframes newsTicker {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    /* For smaller screens, adjust the

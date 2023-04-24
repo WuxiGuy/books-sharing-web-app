@@ -1,0 +1,81 @@
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4d4d4d;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 3px solid #4d4d4d;
+  }
+  
+  
+
+.bookshelf {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  
+  .book {
+    list-style-type: none;
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+  }
+  
+  .book:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .book-cover {
+    width: 150px;
+    height: 225px;
+  }
+  
+  .book-title,
+  .book-author,
+  .book-year {
+    margin-top: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .home-book-save,
+  .home-book-detail {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #c7c7c7;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .home-book-detail a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .home-book-save {
+    background-color: #e8e8e8;
+  }
+
+  .home-book-save:hover,
+  .home-book-detail:hover {
+    background-color: #9d9d9d;
+    color: #fff;
+  }
+
+  

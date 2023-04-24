@@ -1,0 +1,90 @@
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4d4d4d;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 3px solid #4d4d4d;
+  }
+  
+  .single-book {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  .single-book-cover {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .single-book-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .single-book-author {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .single-book-year,
+  .single-book-publisher,
+  .single-book-category {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .single-book-summary {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 50px;
+  }
+  
+  @media (max-width: 768px) {
+    .single-book {
+      width: 90%;
+    }
+  
+    .single-book-cover {
+      width: 150px;
+      height: 225px;
+      margin-bottom: 10px;
+    }
+  
+    .single-book-title {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+  
+    .single-book-author {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+  
+    .single-book-year,
+    .single-book-publisher,
+    .single-book-category {
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+    }
+  
+    .single-book-summary {
+      font-size: 0.8rem;
+      margin-bottom: 30px;
+    }
+  }
+  
