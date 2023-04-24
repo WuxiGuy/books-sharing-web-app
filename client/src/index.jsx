@@ -10,7 +10,6 @@ import SavedBooks from "./components/SavedBooks";
 import Book from "./components/Book";
 import NotFound from "./components/NotFound";
 import NewsList from "./components/News";
-// import "./style/index.css";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { AuthTokenProvider } from "./AuthTokenContext";
 
@@ -28,16 +27,6 @@ const requestedScopes = [
   "write:user",
   "write:bookitem",
 ];
-
-// function RequireAuth({ children }) {
-//   const { isAuthenticated, isLoading } = useAuth0();
-
-//   if (!isLoading && !isAuthenticated) {
-//     return <Navigate to="/" replace />;
-//   }
-
-//   return children;
-// }
 
 const root = ReactDOMClient.createRoot(container);
 
