@@ -5,7 +5,7 @@ export default function BooksInServer () {
     
     useEffect(() => {
         async function getBooksFromApi() {
-            const data = await fetch("http://localhost:8000/");
+            const data = await fetch("https://cs5610-yh.wl.r.appspot.com");
             const books = await data.json();
 
             setBooks(books);
