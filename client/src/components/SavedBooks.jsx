@@ -40,7 +40,7 @@ export default function SavedBooks() {
 		<section>
 			<h2>Saved Books</h2>
 			{savedBooks.length !== 0 && (
-				<ul className="book-list">
+				<ul className="bookshelf">
 					{savedBooks.map((item) => (
 						<li key={item.id} className="book">
 							<img className="book-cover" src={item.cover} alt={item.title} />
@@ -50,11 +50,14 @@ export default function SavedBooks() {
 								<p className="book-year">{item.year}</p>
 							</div>
 							<button
-								className="remove-book-button"
+								className="home-book-save"
 								value={item.id}
 								onClick={deleteSavedBook}
 							>
 								Remove
+							</button>
+							<button className="home-book-detail">
+								<a href={`/books/${item.id}`} aria-label={`View details for ${item.title}`}>Details</a>
 							</button>
 						</li>
 					))}

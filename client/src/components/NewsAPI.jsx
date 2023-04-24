@@ -29,7 +29,7 @@ function NewsTicker() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((index) => (index + 1) % headlines.length);
-    }, 2000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [headlines.length]);
 
