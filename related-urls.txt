@@ -1,6 +1,0 @@
-api url: https://cs5610-yh.wl.r.appspot.com
-web url: https://reading-mnkeiu0nk-wuxiguy-s-team.vercel.app
-        localhost:3000
-
-note: Use the deployed link will be unable to load external API because of the free membership limitation. 
-For fully access, please use `localhost:3000`
