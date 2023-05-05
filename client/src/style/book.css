@@ -36,7 +36,7 @@ h2 {
   }
   
   .single-book-author {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 10px;
   }
   
@@ -78,13 +78,86 @@ h2 {
     .single-book-year,
     .single-book-publisher,
     .single-book-category {
-      font-size: 0.8rem;
+      font-size: 1rem;
       margin-bottom: 5px;
     }
   
     .single-book-summary {
-      font-size: 0.8rem;
-      margin-bottom: 30px;
+      font-size: 1rem;
+      margin-bottom: 10px;
     }
   }
+
+  .comments {
+    margin-top: 2rem;
+  }
   
+  .add-comment-form {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+  }
+  
+  .add-comment-input {
+    flex: 1;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+  }
+  
+  .add-comment-button {
+    font-size: 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .single-comment {
+    margin-bottom: 1rem;
+  }
+  
+  .comment-user {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .comment-content {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .delete-comment-button {
+    font-size: 1rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  
+  h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4d4d4d;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 3px solid #4d4d4d;
+  }
