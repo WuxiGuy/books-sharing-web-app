@@ -63,7 +63,6 @@ app.get("/saved", requireAuth, async (req, res) => {
 	});
 
 	const idList = savedBooksRelates.map((savedBook) => savedBook.bookId);
-	console.log(idList);
 
 	const savedBooks = await prisma.books.findMany({
 		where: {
@@ -72,9 +71,6 @@ app.get("/saved", requireAuth, async (req, res) => {
 			},
 		},
 	});
-
-	console.log("here")
-	console.log(savedBooks);
 
 	res.json(savedBooks);
 });
@@ -141,6 +137,104 @@ app.delete("/saved", requireAuth, async (req, res) => {
 	});
 
 	res.json(deletedSavedBook);
+});
+
+// get all comments
+app.get("/comments", async (req, res) => {
+	const comments = await prisma.comments.findMany();
+	res.json(comments);
+});
+
+// get comments of a book
+app.get("/comments/:id", async (req, res) => {
+	const { id } = req.params;
+	if (!id) {
+		res.status(400).json({ message: "Book id is required" });
+		return;
+	}
+	const comments = await prisma.comments.findMany({
+		where: {
+			bookId: parseInt(id),
+		},
+	});
+
+	res.json(comments);
+});
+
+// add a comment to a book
+app.post("/comments/:id", requireAuth, async (req, res) => {
+	const { id } = req.params;
+	const { content } = req.body;
+	if (!content) {
+		res.status(400).json({ message: "Comment content is required" });
+		return;
+	}
+	const auth0Id = req.auth.payload.sub;
+
+	const user = await prisma.user.findUnique({
+		where: {
+			auth0Id,
+		},
+	});
+
+	await prisma.comments.create({
+		data: {
+			comment: content,
+			userName: user.name,
+			user: { connect: { id: user.id } },
+			book: { connect: { id: parseInt(id) } },
+		},
+	});
+
+	const comments = await prisma.comments.findMany({
+		where: {
+			bookId: parseInt(id),
+		},
+	});
+
+	res.json(comments);
+});
+
+// delete a comment of a book
+app.delete("/comments/:id", requireAuth, async (req, res) => {
+	const { id } = req.params;
+	const { commentId } = req.body;
+	if (!commentId) {
+		res.status(400).json({ message: "Comment id is required" });
+		return;
+	}
+	const auth0Id = req.auth.payload.sub;
+
+	const user = await prisma.user.findUnique({
+		where: {
+			auth0Id,
+		},
+	});
+
+	const comment = await prisma.comments.findUnique({
+		where: {
+			id: parseInt(commentId),
+		},
+	});
+
+	if (comment.userId !== user.id) {
+		res.status(401).json({ message: "Unauthorized" });
+		return;
+	}
+
+	await prisma.comments.delete({
+		where: {
+			id: parseInt(commentId),
+		},
+	});
+
+	const comments = await prisma.comments.findMany({
+		where: {
+			bookId: parseInt(id),
+		},
+	});
+
+	res.json(comments);
 });
 
 // get Profile information of authenticated user
