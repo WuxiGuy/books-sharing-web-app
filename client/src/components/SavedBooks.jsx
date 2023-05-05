@@ -6,15 +6,13 @@ import "../style/home.css";
 
 
 export default function SavedBooks() {
-    const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
-    const [ savedBooks, setSavedBooks] = UserSavedBooks();
-		const { accessToken } = useAuthToken();
+	const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
+	const [ savedBooks, setSavedBooks] = UserSavedBooks();
+	const { accessToken } = useAuthToken();
 
-		console.log(savedBooks);
-
-    if (!isLoading && !isAuthenticated) {
-        loginWithRedirect();
-    }
+	if (!isLoading && !isAuthenticated) {
+			loginWithRedirect();
+	}
 
 	const deleteSavedBook = async (e) => {
 		const element = e.target.value;

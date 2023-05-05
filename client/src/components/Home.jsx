@@ -26,10 +26,6 @@ export default function Home() {
 
     const saved = await isBookSaved(element);
     bookSave = saved;
-    console.log("again");
-    console.log(SavedBooks);
-    console.log(saved);
-    console.log(element.toString());
     if (!saved) {
       const newSavedBooks = await fetch(`${process.env.REACT_APP_API_URL}/saved`, {
         method: "POST",
@@ -64,33 +60,31 @@ export default function Home() {
         }
     }
 
-		console.log(books)
-
   return (
 		<div className="home">
 			<h2>BookShelf</h2>
-				<div className="bookshelf">
-					{ (books.length !== 0) && (
-						books.map((item) => {
-							return (
-								<li key={item.id} className="book">
-									<img className="book-cover" src={item.cover} alt={item.title} />
-									<div className="book-title">{item.title}</div>
-									<div className="book-author">{item.author}</div>
-									<div className="book-year">{item.year}</div>
-									{isAuthenticated && (
-										<button className="home-book-save" value={item.id} onClick={handleClick} aria-label={bookSave ? "Remove from Saved Books" : "Add to Saved Books"}>
-											Save
-										</button>
-									)}
-									<button className="home-book-detail">
-										<a href={`/books/${item.id}`} aria-label={`View details for ${item.title}`}>Details</a>
-									</button>
-								</li>
-							);
-						})
-					)}
-				</div>
+      <div className="bookshelf">
+        { (books.length !== 0) && (
+          books.map((item) => {
+            return (
+              <li key={item.id} className="book">
+                <img className="book-cover" src={item.cover} alt={item.title} />
+                <div className="book-title">{item.title}</div>
+                <div className="book-author">{item.author}</div>
+                <div className="book-year">{item.year}</div>
+                {isAuthenticated && (
+                  <button className="home-book-save" value={item.id} onClick={handleClick}>
+                    { SavedBooks.some((savedBook) => savedBook.id === item.id) ? "Remove" : "Save"}
+                  </button>
+                )}
+                <button className="home-book-detail">
+                  <a href={`/books/${item.id}`} aria-label={`View details for ${item.title}`}>Details</a>
+                </button>
+              </li>
+            );
+          })
+        )}
+      </div>
 		</div>
 	);
 }
