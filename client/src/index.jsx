@@ -12,6 +12,7 @@ import NotFound from "./components/NotFound";
 import NewsList from "./components/News";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { AuthTokenProvider } from "./AuthTokenContext";
+import Search from "./components/Search";
 
 const container = document.getElementById("root");
 
@@ -50,7 +51,8 @@ root.render(
               <Route path="profile" element={<Profile />} />
               <Route path="saved-books" element={<SavedBooks />} />
               <Route path="books/:bookId" element={<Book />} />
-              <Route path="news" element={<NewsList />} />
+              <Route path="search/" element={<Search />} />
+              <Route path="search/:searchTerm" element={<Search />} />
               <Route path="debugger" element={<AuthDebugger />} />
             </Route>
             <Route path="/verify-user" element={<VerifyUser />} />

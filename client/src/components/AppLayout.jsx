@@ -17,9 +17,9 @@ export default function AppLayout() {
 			<div className="title">
 				<h1>Reading Club</h1>
 			</div>
-			<div className="News">
+			{/* <div className="News">
 				<NewsTicker />
-			</div>
+			</div> */}
 			<header className="header">
 				<nav role="navigation" className="menu">
 					<ul className="menu-list">
@@ -33,7 +33,7 @@ export default function AppLayout() {
 							<Link to="saved-books">Saved</Link>
 						</li>
 						<li>
-							<Link to="news">News</Link>
+							<Link to="search">Search</Link>
 						</li>
 						<li>
 							<AuthButton />
