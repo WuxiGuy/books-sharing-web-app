@@ -1,43 +1,94 @@
-# Project Name
-
-Brief project description.
+# Book Review App
+This is a web application that allows users to view information about books and leave comments.
+Users can also save books to their profile and edit their profile information. 
+The application uses Auth0 for authentication and authorization.
 
 ## Table of Contents
-
-- [Overview](#overview)
-- [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
+- [Tech Stack](#tech-stack)
+- [Security](#Security)
 - [Features](#features)
 - [Demo](#demo)
-- [Contributing](#contributing)
-- [License](#license)
 
-## Overview
+## Getting_Started
+### Prerequisites
+- Node.js (v14 or higher)
+- MySQL
 
-Explain what the project does, what problem it solves, and what benefits it provides to the user.
+### Installation
+1. Navigate to the backend directory create Json file and install dependencies:
+```bash
+npm init
+npm install express
+npm install
+```
+
+2. Initialize the Prisma database:
+
+```bash
+npx prisma init
+```
+
+3. Push or update database:
+
+```bash
+npx prisma db push 
+```
+or
+```bash
+npx migrate dev --name init
+```
+
+4. Monitor and start backend server or database:
+
+```bash
+npx nodemon index.js
+```
+or
+```bash
+npx prisma studio
+```
+
+5. In a new terminal window, navigate to the frontend directory and install dependencies:
+
+```bash
+npm install
+```
+
+6. Start the frontend server:
+```bash
+npm start
+```
 
 ## Tech Stack
+### Frontend
+- React
+- Node.js
 
-List the technologies that were used in the project. You can divide this section into sub-sections for the frontend, backend, and any other components of the project.
+### Backend
+- Node.js
+- Prisma database
+- MySQL
 
-## Getting Started
-
-Explain how to set up the project, including any dependencies that need to be installed and how to run the application.
+## Security
+This application uses Auth0 for authentication and authorization. Auth0 provides a secure, easy-to-use platform for managing user authentication and authorization.
 
 ## Features
 
-List the features of the project and how they benefit the user.
+### Basic features:
+- Browser books and comments
+- Search for books
+
+### Advanced features(after loging in or signing up)
+- Save or unsave books
+- Leave or delete comments
+- Edit personal information
 
 ## Demo
+![Demo](https://github.com/WuxiGuy/books-sharing-web-app/blob/main/materials/homepage.gif?raw=true)
 
-Provide a link to a demo of the project, if available.
+![Demo](https://github.com/WuxiGuy/books-sharing-web-app/blob/main/materials/book-details-comments.gif?raw=true)
 
-## Contributing
+![Demo](https://github.com/WuxiGuy/books-sharing-web-app/blob/main/materials/profile-savedbook.gif?raw=true)
 
-Explain how others can contribute to the project, including guidelines for pull requests and code reviews.
-
-## License
-
-Specify the license under which the project is available. For example:
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+![Demo](https://github.com/WuxiGuy/books-sharing-web-app/blob/main/materials/searchbook.gif?raw=true)
