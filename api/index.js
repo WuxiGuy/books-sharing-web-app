@@ -80,7 +80,6 @@ app.post("/saved", requireAuth, async (req, res) => {
 	const auth0Id = req.auth.payload.sub;
 	var { id } = req.body;
 
-	console.log(id);
 	id = parseInt(id);
 	const newSavedBook = await prisma.savedBooks.create({
 		data: {

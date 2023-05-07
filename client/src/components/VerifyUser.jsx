@@ -27,7 +27,7 @@ export default function VerifyUser() {
     if (accessToken) {
       verifyUser();
     }
-  }, [accessToken]);
+  }, [accessToken, navigate]);
 
   return <div className="loading">Loading...</div>;
 }

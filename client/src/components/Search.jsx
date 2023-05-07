@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SearchBar from './SearchBar';
 import booksInServer from "../hooks/Books";
 
@@ -18,23 +18,23 @@ function Search() {
     <div>
       <h2>Book List</h2>
       <SearchBar handleSearch={handleSearch} />
-      <ul>
+      <div className="bookshelf">
 				{ (filteredBooks.length !== 0) && (
-						filteredBooks.map((book) => {
-							return (
-								<li key={book.id} className="book">
-									<img className="book-cover" src={book.cover} alt={book.title} />
-									<div className="book-title">{book.title}</div>
-									<div className="book-author">{book.author}</div>
-									<div className="book-year">{book.year}</div>
-									<button className="home-book-detail">
-										<a href={`/books/${book.id}`} aria-label={`View details for ${book.title}`}>Details</a>
-									</button>
-								</li>
-							);
-						})
-					)}
-      </ul>
+					filteredBooks.map((book) => {
+						return (
+							<li key={book.id} className="book">
+								<img className="book-cover" src={book.cover} alt={book.title} />
+								<div className="book-title">{book.title}</div>
+								<div className="book-author">{book.author}</div>
+								<div className="book-year">{book.year}</div>
+								<button className="home-book-detail">
+									<a href={`/books/${book.id}`} aria-label={`View details for ${book.title}`}>Details</a>
+								</button>
+							</li>
+						);
+					})
+				)}
+      </div>
     </div>
   );
 }

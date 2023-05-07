@@ -10,7 +10,9 @@ export default function Home() {
   const [ SavedBooks, setSavedBooks ] = UserSavedBooks();
   const [ books ] = booksInServer();
   const { accessToken } = useAuthToken();
-  var bookSave = false;
+
+  var arr = Object.values(SavedBooks);
+  console.log(arr);
 
   async function isBookSaved(id) {
     for (let i = 0; i < SavedBooks.length; i++) {
@@ -22,10 +24,10 @@ export default function Home() {
   }
   
   const handleClick = async (e) => {
+    e.preventDefault();
     const element = e.target.value;
 
     const saved = await isBookSaved(element);
-    bookSave = saved;
     if (!saved) {
       const newSavedBooks = await fetch(`${process.env.REACT_APP_API_URL}/saved`, {
         method: "POST",
@@ -40,6 +42,7 @@ export default function Home() {
         if (newSavedBooks.ok) {
             const data = await newSavedBooks.json();
             await setSavedBooks(data);
+            arr = await Object.values(SavedBooks);
         }
     }
     else {
@@ -56,6 +59,7 @@ export default function Home() {
         if (newSavedBooks.ok) {
             const data = await newSavedBooks.json();
             await setSavedBooks(data);
+            arr = await Object.values(SavedBooks);
         }
         }
     }
@@ -74,7 +78,7 @@ export default function Home() {
                 <div className="book-year">{item.year}</div>
                 {isAuthenticated && (
                   <button className="home-book-save" value={item.id} onClick={handleClick}>
-                    { SavedBooks.some((savedBook) => savedBook.id === item.id) ? "Remove" : "Save"}
+                    { arr.some((savedBook) => savedBook.id === item.id) ? "Remove" : "Save"}
                   </button>
                 )}
                 <button className="home-book-detail">

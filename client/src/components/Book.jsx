@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BooksInServer from "../hooks/Books";
 import UserProfile from "../hooks/User";
 import AllComments from "../hooks/Comments";
@@ -34,12 +34,10 @@ export default function Book() {
 	const submitComment = async (e) => {
 		e.preventDefault();
 
-		console.log(newComment);
-
 		if (!newComment) return;
 
-		const newComment = await postComment(newComment);
-		if (newComment) {
+		const comments = await postComment(newComment);
+		if (comments) {
 			setNewComment("");
 		}
 	};
@@ -120,6 +118,7 @@ export default function Book() {
 									</li>
 								);
 							};
+							return null;
 						}
 						)}
 					</div>

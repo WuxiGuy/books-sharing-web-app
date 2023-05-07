@@ -9,7 +9,6 @@ import Profile from "./components/Profile";
 import SavedBooks from "./components/SavedBooks";
 import Book from "./components/Book";
 import NotFound from "./components/NotFound";
-import NewsList from "./components/News";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { AuthTokenProvider } from "./AuthTokenContext";
 import Search from "./components/Search";
