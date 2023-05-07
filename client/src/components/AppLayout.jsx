@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import AuthButton from "./AuthButton";
-import NewsTicker from "./NewsAPI";
+// import NewsTicker from "./NewsAPI";
 import "../style/applayout.css";
 
 export default function AppLayout() {
