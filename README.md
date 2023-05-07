@@ -1,10 +1,11 @@
 # Book Review App
-This is a web application that allows users to view information about books and leave comments.
-Users can also save books to their profile and edit their profile information. 
-The application uses Auth0 for authentication and authorization.
+The Book Review web application is a simple book review platform that allows users to browse and view information about books, save books to their profile, and leave comments on books. The application also has user authentication and authorization features to ensure that only registered users can access certain parts of the application.
+
+The front-end of the application is built using the React library, while the back-end is built using Node.js and the Prisma ORM to interact with a MySQL database. The application also utilizes the Auth0 service for user authentication and authorization.
 
 ## Table of Contents
 - [Getting Started](#getting-started)
+- [Usage](#Usage)
 - [Tech Stack](#tech-stack)
 - [Security](#Security)
 - [Features](#features)
@@ -59,6 +60,15 @@ npm install
 ```bash
 npm start
 ```
+
+## Usage
+Once the application is up and running, you can access it by opening your web browser and navigating to ```http://localhost:3000```. From there, you can browse the list of available books, view information about each book, save books to your profile, and leave comments on books.
+
+To save a book, you must first log in or sign up for an account. After logging in or signing up, you can click the "Save" button on the book details page to save the book to your profile.
+
+To leave a comment on a book, you must also be logged in or signed up for an account. After logging in or signing up, you can enter your comment in the input field and click the "Post" button to leave your comment.
+
+You can also edit your profile information by clicking on the "Profile" link in the navigation bar and entering your updated information in the input fields.
 
 ## Tech Stack
 ### Frontend
